@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="annotation">
+            <h2><span>Annotation</span> {{annotation.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Annotation Type</span></dt>
+                <dd>
+                    <span>{{annotation.annotationType}}</span>
+                </dd>
+                <dt><span>Page</span></dt>
+                <dd>
+                    <span>{{annotation.page}}</span>
+                </dd>
+                <dt><span>X</span></dt>
+                <dd>
+                    <span>{{annotation.x}}</span>
+                </dd>
+                <dt><span>Y</span></dt>
+                <dd>
+                    <span>{{annotation.y}}</span>
+                </dd>
+                <dt><span>Width</span></dt>
+                <dd>
+                    <span>{{annotation.width}}</span>
+                </dd>
+                <dt><span>Height</span></dt>
+                <dd>
+                    <span>{{annotation.height}}</span>
+                </dd>
+                <dt><span>Annotation Set</span></dt>
+                <dd>
+                    <div *ngIf="annotation.annotationSetId">
+                        <a [routerLink]="['/annotation-set', annotation.annotationSetId, 'view']">{{annotation.annotationSetId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/annotation', annotation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

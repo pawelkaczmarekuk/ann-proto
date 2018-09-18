@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-annotation-heading">Create or edit a Annotation</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!annotation.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="annotation.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_annotationType">Annotation Type</label>
+                    <select class="form-control" name="annotationType" [(ngModel)]="annotation.annotationType" id="field_annotationType" >
+                        <option value="AREA">AREA</option>
+                        <option value="HIGHLIGHT">HIGHLIGHT</option>
+                        <option value="POINT">POINT</option>
+                        <option value="TEXTBOX">TEXTBOX</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_page">Page</label>
+                    <input type="number" class="form-control" name="page" id="field_page"
+                        [(ngModel)]="annotation.page" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_x">X</label>
+                    <input type="number" class="form-control" name="x" id="field_x"
+                        [(ngModel)]="annotation.x" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_y">Y</label>
+                    <input type="number" class="form-control" name="y" id="field_y"
+                        [(ngModel)]="annotation.y" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_width">Width</label>
+                    <input type="number" class="form-control" name="width" id="field_width"
+                        [(ngModel)]="annotation.width" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_height">Height</label>
+                    <input type="number" class="form-control" name="height" id="field_height"
+                        [(ngModel)]="annotation.height" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_annotationSet">Annotation Set</label>
+                    <select class="form-control" id="field_annotationSet" name="annotationSet" [(ngModel)]="annotation.annotationSetId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="annotationSetOption.id" *ngFor="let annotationSetOption of annotationsets; trackBy: trackAnnotationSetById">{{annotationSetOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

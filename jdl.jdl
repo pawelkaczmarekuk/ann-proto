@@ -1,0 +1,38 @@
+
+entity AnnotationSet {
+	documentId String
+}
+
+enum AnnotationType {
+	AREA, HIGHLIGHT, POINT, TEXTBOX
+}
+
+entity Annotation {
+	annotationType AnnotationType
+	page Integer
+    x Integer
+    y Integer
+    width Integer
+    height Integer
+}
+
+entity Comment {
+	content String maxlength(5000)
+}
+
+entity Rectangle {
+	x Integer
+    y Integer
+    width Integer
+    height Integer
+}
+
+relationship OneToMany {
+    AnnotationSet{annotations} to Annotation{annotationSet}
+    Annotation{comments} to Comment{annotation}
+    Annotation{rectangles} to Rectangle{annotation}
+}
+
+paginate * with pagination
+service * with serviceImpl
+dto * with mapstruct

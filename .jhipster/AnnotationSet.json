@@ -1,0 +1,27 @@
+{
+    "name": "AnnotationSet",
+    "fields": [
+        {
+            "fieldName": "documentId",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "annotations",
+            "otherEntityName": "annotation",
+            "otherEntityRelationshipName": "annotationSet"
+        }
+    ],
+    "changelogDate": "20180917100756",
+    "entityTableName": "annotation_set",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "enableEntityAudit": true
+}

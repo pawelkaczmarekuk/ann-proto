@@ -1,0 +1,60 @@
+{
+    "name": "Annotation",
+    "fields": [
+        {
+            "fieldName": "annotationType",
+            "fieldType": "AnnotationType",
+            "fieldValues": "AREA,HIGHLIGHT,POINT,TEXTBOX"
+        },
+        {
+            "fieldName": "page",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "x",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "y",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "width",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "height",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "comments",
+            "otherEntityName": "comment",
+            "otherEntityRelationshipName": "annotation"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "rectangles",
+            "otherEntityName": "rectangle",
+            "otherEntityRelationshipName": "annotation"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "annotationSet",
+            "otherEntityName": "annotationSet",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180917100757",
+    "entityTableName": "annotation",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "enableEntityAudit": true
+}

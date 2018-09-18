@@ -1,0 +1,39 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "uk.gov.hmcts.reform.em.annotation"
+    },
+    "jhipsterVersion": "5.3.1",
+    "applicationType": "monolith",
+    "baseName": "jhipstermoj",
+    "packageName": "uk.gov.hmcts.reform.em.annotation",
+    "packageFolder": "uk/gov/hmcts/reform/em/annotation",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NDhjOTllMWE0MjJhNDk4NzgyMDk1ODgyZjJjZTVjZjIwODgyMTViZWRlNjljNDA3NTk5NDI2NmZiN2I1ZWJlMDQ1MzIyNzU4YzI4YjAxNWJhY2I5ZTg2NzZlNzhkNzQ2ZTMyYWY5ZTYwZTg2MDBiOWFhYWI1ZmEyNDU3ZDllNmM=",
+    "clientFramework": "angularX",
+    "useSass": false,
+    "clientPackageManager": "npm",
+    "testFrameworks": [
+      "gatling",
+      "cucumber",
+      "protractor"
+    ],
+    "jhiPrefix": "jhi",
+    "enableTranslation": false
+  },
+  "generator-jhipster-entity-audit": {
+    "auditFramework": "custom"
+  }
+}
