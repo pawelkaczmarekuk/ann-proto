@@ -10,8 +10,9 @@ import java.util.Set;
  * A AnnotationSet.
  */
 @Entity
-@Table(name = "annotation_set")
-
+@Table(name = "annotation_set", uniqueConstraints={
+    @UniqueConstraint(columnNames = {"created_by", "document_id"})
+})
 public class AnnotationSet extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;

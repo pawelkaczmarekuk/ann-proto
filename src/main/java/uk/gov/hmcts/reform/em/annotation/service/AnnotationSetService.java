@@ -43,4 +43,7 @@ public interface AnnotationSetService {
      * @param id the id of the entity
      */
     void delete(Long id);
+
+
+    Optional<AnnotationSetDTO> findOneByDocumentId(String documentId);
 }

@@ -1,5 +1,6 @@
 package uk.gov.hmcts.reform.em.annotation.service.impl;
 
+import org.springframework.security.core.context.SecurityContext;
 import uk.gov.hmcts.reform.em.annotation.service.AnnotationSetService;
 import uk.gov.hmcts.reform.em.annotation.domain.AnnotationSet;
 import uk.gov.hmcts.reform.em.annotation.repository.AnnotationSetRepository;
@@ -85,5 +86,12 @@ public class AnnotationSetServiceImpl implements AnnotationSetService {
     public void delete(Long id) {
         log.debug("Request to delete AnnotationSet : {}", id);
         annotationSetRepository.deleteById(id);
+    }
+
+    @Override
+    public Optional<AnnotationSetDTO> findOneByDocumentId(String documentId) {
+        return annotationSetRepository
+            .findByDocumentIdAndCreatedBy(documentId, "anonymousUser")
+            .map(annotationSetMapper::toDto);
     }
 }
